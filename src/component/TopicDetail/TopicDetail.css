@@ -1,0 +1,113 @@
+.topicDetail {
+    margin-top: 7vh;
+}
+
+.topicTopInfo {
+    height: 60px;
+    /*line-height: 60px;*/
+}
+
+.topicDetail .userImage {
+    margin: 10px;
+}
+
+.topicTopInfo .authorInfo {
+    display: inline-block;
+}
+
+.topicTopInfo .authorInfo p {
+    height: 22px;
+    line-height: 39px;
+    font-size: 13px;
+}
+
+.topicTopInfo .authorInfo p span:first-child {
+    color: #80BD01;
+}
+
+.topicTopInfo .logo {
+    display: inline-block;
+    float: right;
+    height: 60px;
+    width: 60px;
+    line-height: 60px;
+    text-align: center;
+}
+
+.topicTopInfo .iconfont {
+    font-size: 35px;
+    margin: 0;
+}
+
+.topicTitle {
+    background: #EEEEEE;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 8px 10px 8px;
+    line-height: 20px;
+}
+
+.topicDetail .content {
+    font-size: 13px !important;
+    line-height: 23px !important;
+    padding: 10px 8px 15px;
+}
+
+.topicReply {
+    background: #EEEEEE;
+    height: 30px;
+    line-height: 30px;
+    border-left: 8px solid #80BD01;
+    font-size: 15px;
+    padding-left: 10px;
+}
+
+.topicReply span {
+    color: #80BD01;
+    font-size: 14px;
+}
+
+.topicDetail ul {
+    list-style: none;
+}
+
+.topicDetail ul li {
+    height: auto;
+    border-bottom: 1px solid #DDDDDD;
+}
+
+.replyAuthorImage {
+    height: inherit;
+    display: inline-block;
+    float: left;
+    width: 16%;;
+}
+
+.replyInfo {
+    display: inline-block;
+    width: 82%;
+    height: 30px;
+    line-height: 48px;
+}
+
+.replyInfo .left {
+    float: left;
+    font-size: 15px;
+    color: #666;
+}
+
+.replyInfo .left span {
+    color: #80BD01;
+    font-size: 14px;
+}
+
+.replyInfo .floor {
+    float: right;
+    font-size: 13px;
+    color: #666;
+}
+
+.replyContent {
+    margin-left: 18%;
+    padding: 0 !important;
+}

@@ -1,0 +1,70 @@
+.listitem_wrap {
+    width: 100%;
+    height: 5.5rem;
+    padding: 3px;
+    border-bottom: 1px solid #ddd;
+    background: #fff;
+}
+
+.listitem_up {
+    width: 92%;
+    height: 2rem;
+    margin: 5px 6px 0;
+}
+
+.listitem_up .icon {
+    line-height: 28px;
+    float: left;
+    width: 27px;
+    height: 27px;
+    text-align: center;
+    border-radius: 8px;
+}
+
+.listitem_up h4 {
+    font-size: 17px;
+    font-weight: bold;
+    line-height: 27px;
+    overflow: hidden;
+    width: 85%;
+    height: 27px;
+    padding-left: 8px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    color: #2c3e50;
+}
+
+.listitem_down {
+    width: 100%;
+    height: 3rem;
+    margin: 5px 6px 0;
+}
+
+.listitem_down .left {
+    float: left;
+    width: 65%;
+}
+
+.listitem_down .autherInfo {
+    font-size: 12px;
+    float: left;
+    margin-left: 15px;
+}
+
+.listitem_down .autherInfo p {
+    line-height: 20px;
+    height: 20px;
+}
+
+.listitem_down .right {
+    font-size: 12px;
+    float: right;
+    width: 18%;
+    margin-right: 25px;
+    text-align: right;
+}
+
+.listitem_down .right p {
+    line-height: 20px;
+    height: 20px;
+}

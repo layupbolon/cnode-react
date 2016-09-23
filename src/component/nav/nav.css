@@ -1,0 +1,23 @@
+.nav {
+    position: fixed;
+    background: #80BD01;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 7vh;
+    line-height: 7vh;
+}
+
+.nav .navBack{
+    float: left;
+    margin-left:10px;
+    background: transparent;
+}
+
+.nav h2{
+    text-align: center;
+    margin-right:30px;
+    font-size:17px;
+    color: #fff;
+}
