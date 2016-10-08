@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 
-import Tool from '../../component/tool';
+import Tool from '../../constants/tool';
 import UserImage from '../../component/userImage/UserImage';
 import Icon from '../../component/icon/icon';
 import './TopicDetail.css';

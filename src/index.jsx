@@ -1,8 +1,8 @@
 import ReactDOM from 'react-dom';
-import route from './Route/Route';
+import React from 'react';
 
-import './App.css';
+import App from './containers/App';
 import 'github-markdown-css';
 
 ReactDOM.render(
-    route, document.getElementById('root'));
+    <App/>, document.getElementById('root'));

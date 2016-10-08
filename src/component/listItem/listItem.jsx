@@ -3,7 +3,7 @@ import {Link} from 'react-router';
 
 import './listItem.css';
 import Icon from '../icon/icon';
-import Tool from '../tool';
+import Tool from '../../constants/tool';
 import UserImage from '../userImage/UserImage';
 
 class ListItem extends Component {

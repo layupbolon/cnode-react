@@ -5,10 +5,6 @@ let Tool = {};
 
 const getJson = simpleFetch.getJson;
 
-Tool.reqUrl = 'https://cnodejs.org';
-Tool.getTopicsApi = '/api/v1/topics';
-Tool.getTopicByIdApi = '/api/v1/topic/';
-
 Tool.dataFormat = (str) => {
     var date = new Date(str);
     var time = new Date().getTime() - date.getTime(); //现在的时间-传入的时间 = 相差的时间（单位 = 毫秒）
