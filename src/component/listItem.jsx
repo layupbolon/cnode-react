@@ -2,13 +2,12 @@ import React, {Component} from 'react';
 import {Link} from 'react-router';
 
 import './listItem.css';
-import Icon from '../icon/icon';
-import Tool from '../../constants/tool';
-import UserImage from '../userImage/UserImage';
+import Icon from './icon';
+import UserImage from './UserImage';
+import Tool from '../constants/tool';
 
 class ListItem extends Component {
     render() {
-
         return (
             <Link to={`/topic/${this.props.model.id}`}>
                 <div className="listitem_wrap">

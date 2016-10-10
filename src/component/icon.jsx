@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 
-import '../../Iconfont/iconfont.css';
+import '../Iconfont/iconfont.css';
 import './icon.css';
 
 class Icon extends Component {

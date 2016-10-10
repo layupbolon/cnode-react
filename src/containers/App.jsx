@@ -4,8 +4,7 @@ import {Provider} from 'react-redux';
 import thunk from 'redux-thunk';
 import {Router, Route, IndexRoute, browserHistory} from 'react-router';
 
-import IndexList from '../pages/IndexList';
-import Topic from '../pages/Topic';
+import {IndexList,Topic} from '../pages';
 import './App.css';
 import * as reducers from '../reducers';
 import Root from './Root';

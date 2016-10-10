@@ -1,6 +1,8 @@
 import React,{Component} from 'react';
+import {connect} from 'react-redux';
 
 import './nav.css';
+import {ChangeFetchField} from '../actions';
 
 class Nav extends Component{
 
@@ -8,7 +10,7 @@ class Nav extends Component{
         return (
             <header className="nav">
                 <div className="navBack">
-                    <a onClick={this.context.router.goBack}>
+                    <a onClick={this.Goback.bind(this)}>
                         <i className="iconfont icon-fanhui"></i>
                     </a>
                 </div>
@@ -16,10 +18,22 @@ class Nav extends Component{
             </header>
         );
     }
+
+    Goback(){
+        this.props.ChangeFetchField(false);
+        this.context.router.goBack();
+    }
 }
 
 Nav.contextTypes = {
     router: React.PropTypes.object.isRequired
 }
 
-export default Nav;
+function mapDispatchToProps(dispatch) {
+    return {
+        ChangeFetchField: (data)=>dispatch(ChangeFetchField(data))
+    };
+}
+
+
+export default connect(null, mapDispatchToProps)(Nav);

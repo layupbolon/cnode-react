@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 
-import Nav from '../component/nav/nav';
-import TopicDetail from '../component/TopicDetail/TopicDetail';
+import {Nav,TopicDetail} from '../component';
 
 class Topic extends Component {
     render() {

@@ -1,51 +1,52 @@
 import React, {Component} from 'react';
+import {connect} from 'react-redux';
 
-import Tool from '../../constants/tool';
-import UserImage from '../../component/userImage/UserImage';
-import Icon from '../../component/icon/icon';
 import './TopicDetail.css';
+import Tool from '../constants/tool';
+import UserImage from './UserImage';
+import Icon from './icon';
+import {GetTopicDetailData} from '../actions';
 
 class TopicDetail extends Component {
-    constructor(props) {
-        super(props);
 
-        this.state = {
-            dataSource: []
-        }
+    componentDidMount() {
+        this.request = this.props.GetTopicDetailData(this.props.id);
+    }
 
-        this.bindData = this.bindData.bind(this);
-
-        Tool.getTopicById(props.id, this.bindData);
+    componentWillUnMount() {
+        this.request.abort();
     }
 
     render() {
-        if (!this.state.dataSource || this.state.dataSource.length < 1)
+        let{dataSource} = this.props;
+
+        if (!dataSource || dataSource.length < 1)
             return null;
 
         return (
             <div className="topicDetail">
                 <div className="topicTopInfo">
-                    <UserImage imgeUrl={this.state.dataSource.author.avatar_url}/>
+                    <UserImage imgeUrl={dataSource.author.avatar_url}/>
                     <div className="authorInfo">
                         <p>
-                            <span>{this.state.dataSource.author.loginname}</span>&nbsp;
-                            <span>{Tool.dataFormat(this.state.dataSource.create_at)}</span>
+                            <span>{dataSource.author.loginname}</span>&nbsp;
+                            <span>{Tool.dataFormat(dataSource.create_at)}</span>
                         </p>
                         <p>
-                            阅读：{this.state.dataSource.visit_count} 回复：{this.state.dataSource.reply_count}
+                            阅读：{dataSource.visit_count} 回复：{dataSource.reply_count}
                         </p>
                     </div>
                     <Icon
-                        iconType={this.state.dataSource.top ? "top" : this.state.dataSource.good ? "good" : this.state.dataSource.tab}
+                        iconType={dataSource.top ? "top" : dataSource.good ? "good" : dataSource.tab}
                         iconClassName="logo"/>
                 </div>
-                <div className="topicTitle"> {this.state.dataSource.title}</div>
+                <div className="topicTitle"> {dataSource.title}</div>
                 <div className="content markdown-body"
-                     dangerouslySetInnerHTML={{__html: this.state.dataSource.content}}/>
-                <div className="topicReply">共<span>{this.state.dataSource.reply_count}</span>条回复</div>
+                     dangerouslySetInnerHTML={{__html: dataSource.content}}/>
+                <div className="topicReply">共<span>{dataSource.reply_count}</span>条回复</div>
                 <ul>
                     {
-                        this.state.dataSource.replies.map((item, index)=> {
+                        dataSource.replies.map((item, index)=> {
                             return (
                                 <li key={index}>
                                     <div className="replyTop">
@@ -62,8 +63,8 @@ class TopicDetail extends Component {
                                              dangerouslySetInnerHTML={{__html: item.content}}/>
                                     </div>
                                     <div className="replyDown">
-                                        <i className="iconfont icon-dianzan"></i>
-                                        <i className="iconfont icon-huifu"></i>
+                                        <i className="iconfont icon-dianzan"/>
+                                        <i className="iconfont icon-huifu"/>
                                     </div>
                                 </li>
                             );
@@ -73,10 +74,18 @@ class TopicDetail extends Component {
             </div>
         );
     }
-
-    bindData(data) {
-        this.setState({dataSource: data});
-    }
 }
 
-export default TopicDetail;
+function mapStateToProps(state) {
+    return {
+        dataSource: state.topicDetail.dataSource
+    };
+}
+
+function mapDispatchToProps(dispatch) {
+    return {
+        GetTopicDetailData: (id)=>dispatch(GetTopicDetailData(id))
+    };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(TopicDetail);

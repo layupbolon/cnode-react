@@ -41,16 +41,38 @@ function SetUrl(setting = {}) {
     if (newSetting.tab) {
         url += '&tab=' + newSetting.tab;
     }
+    else {
+        url += '&tab=all';
+    }
     if (newSetting.limit) {
         url += '&limit=' + newSetting.limit;
     }
-    url += '&mdrender=false&' + Tool.randomData();
+    url += '&mdrender=false&';
     return url;
 }
 
 export function GetTopicData() {
     return (dispatch, getState) => {
-        let url = SetUrl();
-        return dispatch(GetData(url));
+        let url = SetUrl(getState().topic);
+        if (getState().topic.Needfetch) {
+            return dispatch(GetData(url + Tool.randomData()));
+        }
+        else {
+            return ()=> {
+            }
+        }
+    }
+}
+
+export function ClearState() {
+    return {
+        type: types.ClearState
+    }
+}
+
+export function ChangeFetchField(data) {
+    return {
+        type: types.ChangeFetchField,
+        data: data
     }
 }

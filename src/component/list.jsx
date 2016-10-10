@@ -1,16 +1,16 @@
 import React from 'react';
 
 import './list.css';
-import ReactRefresh from '../refresh/ReactReFresh.jsx';//下拉刷新
-import ListItem from '../listItem/listItem';
+import ReactReFresh from './ReactReFresh';
+import ListItem from './listItem';
 
-class List extends ReactRefresh {
+class List extends ReactReFresh {
 
     render() {
         if (!this.props.dataSource || this.props.dataSource.length <= 0)
             return null;
 
-        let items = this.props.dataSource.map(function(item, index) {
+        let items = this.props.dataSource.map(function (item, index) {
             return <ListItem key={index} model={item}/>
         });
 
@@ -19,6 +19,11 @@ class List extends ReactRefresh {
                 {items}
             </div>
         )
+    }
+
+    shouldComponentUpdate(nextProps) {
+        let {dataSource} = this.props;
+        return dataSource.length !== nextProps.dataSource.length;
     }
 }
 
