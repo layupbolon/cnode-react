@@ -1,5 +1,4 @@
 import React ,{Component} from 'react';
-import {connect} from 'react-redux';
 
 class Root extends Component {
     render() {
@@ -9,4 +8,4 @@ class Root extends Component {
     }
 }
 
-export default connect()(Root);
+export default Root;
