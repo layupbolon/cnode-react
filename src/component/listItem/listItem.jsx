@@ -2,9 +2,9 @@ import React, {Component} from 'react';
 import {Link} from 'react-router';
 
 import './listItem.css';
-import Icon from './icon';
-import UserImage from './UserImage';
-import Tool from '../constants/tool';
+import Icon from '../icon/icon';
+import UserImage from '../userImage/UserImage';
+import Tool from '../../unused/constants/tool';
 
 class ListItem extends Component {
     render() {

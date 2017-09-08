@@ -1,8 +1,8 @@
 import React from 'react';
 
 import './list.css';
-import ReactReFresh from './ReactReFresh';
-import ListItem from './listItem';
+import ReactReFresh from '../refresh/ReactReFresh';
+import ListItem from '../listItem/listItem';
 
 class List extends ReactReFresh {
 

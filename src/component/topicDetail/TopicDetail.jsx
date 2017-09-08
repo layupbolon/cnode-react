@@ -2,10 +2,10 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 
 import './TopicDetail.css';
-import Tool from '../constants/tool';
-import UserImage from './UserImage';
-import Icon from './icon';
-import {GetTopicDetailData} from '../actions';
+import Tool from '../../unused/constants/tool';
+import UserImage from '../userImage/UserImage';
+import Icon from '../icon/icon';
+import {GetTopicDetailData} from '../../unused/actions/index';
 
 class TopicDetail extends Component {
 

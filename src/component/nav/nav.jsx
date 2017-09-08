@@ -2,7 +2,7 @@ import React,{Component} from 'react';
 import {connect} from 'react-redux';
 
 import './nav.css';
-import {ChangeFetchField} from '../actions';
+import {ChangeFetchField} from '../../unused/actions/index';
 
 class Nav extends Component{
 

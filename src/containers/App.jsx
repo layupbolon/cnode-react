@@ -6,7 +6,7 @@ import {Router, Route, IndexRoute, browserHistory} from 'react-router';
 
 import {IndexList,Topic} from '../pages';
 import './App.css';
-import * as reducers from '../reducers';
+import * as reducers from '../unused/reducers';
 import Root from './Root';
 
 let middleware = [thunk];

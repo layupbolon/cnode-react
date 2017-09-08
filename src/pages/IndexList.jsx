@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 
 import {Head,List} from '../component';
-import {NextPage,UpdateTab,GetTopicData, ClearState,ChangeFetchField} from '../actions';
+import {NextPage,UpdateTab,GetTopicData, ClearState,ChangeFetchField} from '../unused/actions';
 
 class IndexList extends Component {
     constructor(props) {
