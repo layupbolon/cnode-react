@@ -1,11 +1,19 @@
-import React, {Component} from 'react';
-import {Link} from 'react-router';
-
+import * as React from 'react';
+import { Link } from 'react-router-dom';
 import './Head.css';
 
-class Head extends Component {
+export namespace Head {
+    export interface Props {
+        tab: string;
+    }
+    export interface State {
+
+    }
+}
+
+export default class Head extends React.Component<Head.Props,Head.State> {
     render() {
-        let {tab} = this.props;
+        let { tab } = this.props;
 
         return (
             <nav className="head">
@@ -34,4 +42,3 @@ class Head extends Component {
         return this.props.tab !== nextProps.tab; //tab和之前的不一致，组件才需要更新，否则不更新，提升性能
     }
 }
-export default Head;

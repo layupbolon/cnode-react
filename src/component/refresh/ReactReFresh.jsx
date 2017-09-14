@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './spinner.css';
 
-class ReactReFresh extends React.Component {
+export default class ReactReFresh extends React.Component {
     constructor(props) {
         super(props)
         this.viewDidScroll = this.viewDidScroll.bind(this);
@@ -128,4 +128,3 @@ class ReactReFresh extends React.Component {
 ReactReFresh.defaultProps = {
     useDefaultIndicator: true
 }
-export default ReactReFresh;

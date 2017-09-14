@@ -1,9 +1,18 @@
-import React, {Component} from 'react';
-
-import '../../Iconfont/iconfont.css';
+import * as React from 'react';
+// import '../../iconfont/iconfont.css';
 import './icon.css';
 
-class Icon extends Component {
+export namespace Icon{
+    export interface Props{
+        iconType:string;
+        iconClassName:string;
+    }
+    export interface State{
+
+    }
+}
+
+export default class Icon extends React.Component<Icon.Props,Icon.State> {
     render() {
         if (this.props.iconType) {
             return (
@@ -17,5 +26,3 @@ class Icon extends Component {
         }
     }
 }
-
-export default Icon;

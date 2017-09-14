@@ -1,10 +1,23 @@
-import React, {Component} from 'react';
-import {connect} from 'react-redux';
+import * as React from 'react';
+import { connect } from 'react-redux';
 
-import {Head,List} from '../component';
-import {NextPage,UpdateTab,GetTopicData, ClearState,ChangeFetchField} from '../unused/actions';
+import { Head, List } from '../component';
+import { GetNextPage, UpdateTab, receiveData, ClearState, ChangeFetchField,FetchData } from '../redux/actions';
 
-class IndexList extends Component {
+export namespace IndexList {
+    export interface Props {
+        UpdateTab: Function;
+        GetTopicData: Function;
+        ChangeFetchField: Function;
+        ClearState: Function;
+        NextPage: Function;
+        location: any;
+        dataSource: any;
+    }
+    export interface State { }
+}
+
+class IndexList extends React.Component<IndexList.Props, IndexList.State> {
     constructor(props) {
         super(props);
 
@@ -15,27 +28,25 @@ class IndexList extends Component {
     }
 
     render() {
-        let {location, dataSource} = this.props;
+        let { location, dataSource } = this.props;
 
         return (
             <div>
-                <Head tab={location.query.tab}/>
-                <List dataSource={dataSource}
-                      onScrollToTop={this.freshData}
-                      onScrollToBottom={this.loadMoreData}
-                />
+                <Head tab={location.query.tab} />
+                <List dataSource={dataSource} />
             </div>
         );
     }
 
     componentDidMount() {
-        this.request = this.props.GetTopicData();
+        // this.request = this.props.GetTopicData();
+        this.props.GetTopicData();
         this.props.ChangeFetchField(true);
     }
 
-    componentWillUnMount() {
-        this.request.abort();
-    }
+    // componentWillUnMount() {
+    //     this.request.abort();
+    // }
 
     componentWillReceiveProps(nextProps) {
         if (nextProps.location.query.tab !== this.props.location.query.tab) {
@@ -71,11 +82,11 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
     return {
-        NextPage: ()=>dispatch(NextPage()),
-        UpdateTab: (tab)=>dispatch(UpdateTab(tab)),
-        GetTopicData: ()=>dispatch(GetTopicData()),
-        ClearState: ()=>dispatch(ClearState()),
-        ChangeFetchField:(data)=>dispatch(ChangeFetchField(data))
+        NextPage: () => dispatch(GetNextPage()),
+        UpdateTab: (tab) => dispatch(UpdateTab(tab)),
+        GetTopicData: () => dispatch(FetchData()),
+        ClearState: () => dispatch(ClearState()),
+        ChangeFetchField: (data) => dispatch(ChangeFetchField(data))
     };
 }
 

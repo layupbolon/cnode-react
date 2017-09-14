@@ -1,6 +1,7 @@
-import {call, put, take, select} from 'redux-saga/effects';
-import {setUrl, getData} from '../../service';
-import {receiveData, receiveDetailData, GetNextPage} from '../actions';
+import { call, put, take, select } from 'redux-saga/effects';
+import { setUrl, getData } from '../../service';
+import { receiveData, receiveDetailData, GetNextPage } from '../actions';
+import { FetchData } from '../constants/actionTypes';
 import * as api from '../../service/constants';
 
 function randomData() {
@@ -8,12 +9,15 @@ function randomData() {
 }
 
 export function* getTopicData(): any {
-    const topicState: TopicData = yield select(state => state.topic);
-    const url: string = yield call(setUrl, topicState);
-    if (topicState.needFetch) {
-        const result = yield call(getData, `${url}${randomData()}`);
-        if (result.success) {
-            yield put(receiveData(result.data));
+    while (true) {
+        yield take(FetchData);
+        const topicState: TopicData = yield select((state: any) => state.topic);
+        const url: string = yield call(setUrl, topicState);
+        if (topicState.needFetch) {
+            const result = yield call(getData, `${url}${randomData()}`);
+            if (result.success) {
+                yield put(receiveData(result.data));
+            }
         }
     }
 }

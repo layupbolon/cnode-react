@@ -1,12 +1,22 @@
-import React,{Component} from 'react';
-import {connect} from 'react-redux';
+import * as React from 'react';
+import { connect } from 'react-redux';
 
 import './nav.css';
-import {ChangeFetchField} from '../../unused/actions/index';
+import { ChangeFetchField } from '../../redux/actions';
 
-class Nav extends Component{
+export namespace Nav {
+    export interface Props {
+        title: string;
+        ChangeFetchField?: any
+    }
+    export interface State {
 
-    render(){
+    }
+}
+
+class Nav extends React.Component<Nav.Props, Nav.State> {
+
+    render() {
         return (
             <header className="nav">
                 <div className="navBack">
@@ -19,21 +29,16 @@ class Nav extends Component{
         );
     }
 
-    Goback(){
+    Goback() {
         this.props.ChangeFetchField(false);
         this.context.router.goBack();
     }
 }
 
-Nav.contextTypes = {
-    router: React.PropTypes.object.isRequired
-}
-
 function mapDispatchToProps(dispatch) {
     return {
-        ChangeFetchField: (data)=>dispatch(ChangeFetchField(data))
+        ChangeFetchField: (data) => dispatch(ChangeFetchField(data))
     };
 }
-
 
 export default connect(null, mapDispatchToProps)(Nav);

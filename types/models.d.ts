@@ -6,7 +6,7 @@ declare interface TopicData {
     needFetch: true
 }
 
-declare type DataSource = Array;
+declare type DataSource = Array<any>;
 
 declare type TabType = 'all' | 'good' | 'share' | 'ask' | 'job';
 

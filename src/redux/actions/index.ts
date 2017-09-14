@@ -39,3 +39,9 @@ export const UpdateTab = (tab) => {
         data: tab
     }
 };
+
+export const FetchData = () => {
+    return {
+        type: types.FetchData
+    }
+}
