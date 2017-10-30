@@ -3,7 +3,7 @@ import * as types from '../constants/actionTypes';
 export const receiveData = (json) => {
     return {
         type: types.GetTopicData,
-        dataSource: json
+        dataSource: json.data
     }
 };
 

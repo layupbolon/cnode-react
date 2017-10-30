@@ -15,7 +15,7 @@ export function* getTopicData(): any {
         const url: string = yield call(setUrl, topicState);
         if (topicState.needFetch) {
             const result = yield call(getData, `${url}${randomData()}`);
-            if (result.success) {
+            if (result.data.success) {
                 yield put(receiveData(result.data));
             }
         }

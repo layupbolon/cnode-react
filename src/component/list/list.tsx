@@ -1,8 +1,7 @@
 import * as React from 'react';
-
-import ReactList from 'react-list';
 import ListItem from '../listItem/listItem';
-import './list.css';
+
+// import './list.css';
 
 export namespace List {
     export interface Props {
@@ -13,9 +12,10 @@ export namespace List {
 
 export default class List extends React.Component<List.Props, List.State> {
 
-    renderItem(index, key) {
-        return <ListItem key={key} model={this.props.dataSource[index]} />
-    }
+    // renderItem(index:number, key:number|string) {
+    //     console.log('index',index);
+    //     return <ListItem key={key} model={this.props.dataSource[index]}/>
+    // }
 
     render() {
         if (!this.props.dataSource || this.props.dataSource.length <= 0)
@@ -26,16 +26,13 @@ export default class List extends React.Component<List.Props, List.State> {
         });
 
         return (
-            <ReactList
-                itemRenderer={this.renderItem}
-                length={this.props.dataSource.length}
-                type='uniform'
-            />
+            <div>{items}</div>
+            
         )
     }
 
-    shouldComponentUpdate(nextProps) {
-        let { dataSource } = this.props;
-        return dataSource.length !== nextProps.dataSource.length;
-    }
+    // shouldComponentUpdate(nextProps) {
+    //     let { dataSource } = this.props;
+    //     return dataSource.length !== nextProps.dataSource.length;
+    // }
 }

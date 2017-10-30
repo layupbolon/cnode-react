@@ -2,7 +2,7 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 
 import { Head, List } from '../component';
-import { GetNextPage, UpdateTab, receiveData, ClearState, ChangeFetchField,FetchData } from '../redux/actions';
+import { GetNextPage, UpdateTab, receiveData, ClearState, ChangeFetchField, FetchData } from '../redux/actions';
 
 export namespace IndexList {
     export interface Props {
@@ -24,7 +24,7 @@ class IndexList extends React.Component<IndexList.Props, IndexList.State> {
         this.freshData = this.freshData.bind(this);
         this.loadMoreData = this.loadMoreData.bind(this);
 
-        this.props.UpdateTab(props.location.query.tab);
+        this.props.UpdateTab(props.location.query ? props.location.query.tab : 'all');
     }
 
     render() {
@@ -32,7 +32,7 @@ class IndexList extends React.Component<IndexList.Props, IndexList.State> {
 
         return (
             <div>
-                <Head tab={location.query.tab} />
+                <Head tab={location.query ? location.query.tab : 'all'} />
                 <List dataSource={dataSource} />
             </div>
         );
@@ -48,13 +48,13 @@ class IndexList extends React.Component<IndexList.Props, IndexList.State> {
     //     this.request.abort();
     // }
 
-    componentWillReceiveProps(nextProps) {
-        if (nextProps.location.query.tab !== this.props.location.query.tab) {
-            this.props.UpdateTab(nextProps.location.query.tab);
-            this.props.ClearState();
-            this.props.GetTopicData();
-        }
-    }
+    // componentWillReceiveProps(nextProps) {
+    //     if (nextProps.location.query.tab !== this.props.location.query.tab) {
+    //         this.props.UpdateTab(nextProps.location.query.tab);
+    //         this.props.ClearState();
+    //         this.props.GetTopicData();
+    //     }
+    // }
 
     //上拉刷新数据
     freshData(completed) {
